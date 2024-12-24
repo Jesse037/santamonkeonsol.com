@@ -1,0 +1,937 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+@font-face {
+    font-family: 'lemonMilk';
+    font-weight: 400;
+    src: url('../fonts/LEMONMILK-Regular.otf');
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    color: #fff;
+    background: #000;
+}
+
+html {
+    scroll-padding-top: 102px;
+}
+
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: #ccc;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #0231DC;
+}
+
+::selection {
+    background: #ffffff;
+    color: #fff;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    margin: 0;
+    padding: 0;
+    font-family: 'lemonMilk', sans-serif;
+}
+
+ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+p {
+    margin: 0;
+    padding: 0;
+}
+
+a,
+.nav-link {
+    text-decoration: none;
+    transition: 0.2s linear;
+}
+
+.primary-btn {
+    font-size: 20px;
+    font-weight: 600;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    padding: 12px 20px;
+    border-radius: 10px;
+    border: 0;
+    transition: 0.2s linear;
+}
+
+.primary-btn span {
+    display: flex;
+}
+
+.secondary-btn {
+    color: #fff;
+    background: #0231DC;
+    box-shadow: 0px 10px 20px 0px rgba(2, 49, 220, 0.40);
+}
+
+.title-group {
+    margin-bottom: 60px;
+}
+
+.title-group p {
+    font-size: 20px;
+    font-weight: 400;
+    line-height: 150%;
+    color: #C7C7C7;
+    max-width: 705px;
+    margin: 0 auto;
+}
+
+.section-title {
+    font-size: 48px;
+    font-weight: 400;
+    line-height: 1;
+}
+
+/* loader */
+.loader-wrapper {
+    width: 100%;
+    z-index: 9999;
+    height: 100vh;
+    display: flex;
+}
+
+.loader {
+    width: 50px;
+    height: 50px;
+}
+
+.loader:before, .loader:after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: url('../images/wing.png');
+    background-repeat: no-repeat;
+}
+
+.loader:after {
+    animation: pulse 1s infinite;
+    transform: perspective(336px) translateZ(0px);
+}
+
+@keyframes pulse {
+    100% {
+        transform: perspective(336px) translateZ(168px);
+        opacity: 0;
+    }
+}
+
+/* Header */
+header {
+    position: sticky;
+    width: 100%;
+    top: 0;
+    z-index: 999;
+    padding-block: 24px;
+    transition: 0.2s linear;
+    background: #152A34;
+}
+
+.navbar-collapse {
+    flex-grow: 0;
+}
+
+.navbar {
+    padding: 0;
+}
+
+#navbar-right .navbar-nav {
+    gap: 28px;
+}
+
+#navbar-right .navbar-nav .nav-link {
+    font-size: 20px;
+    font-weight: 400;
+    color: #fff;
+    padding: 0;
+    text-transform: capitalize;
+}
+
+#navbar-right .navbar-nav .nav-link:focus,
+#navbar-right .navbar-nav .nav-link:hover,
+#navbar-right .navbar-nav .nav-link.active {
+    color: #fff;
+}
+
+.toggle-menu-icon {
+    width: 24px;
+    height: 20px;
+    display: inline-block;
+    position: relative;
+    margin: 0;
+    transform: rotate(0deg);
+    transition: .5s ease-in-out;
+    cursor: pointer;
+}
+
+.toggle-menu-icon span {
+    display: block;
+    position: absolute;
+    height: 3px;
+    width: 100%;
+    border-radius: 9px;
+    opacity: 1;
+    left: 0;
+    transform: rotate(0deg);
+    transition: .25s ease-in-out;
+    background: #fff;
+}
+
+.toggle-menu-icon span:nth-child(1) {
+    top: 2px;
+}
+
+.toggle-menu-icon span:nth-child(2),
+.toggle-menu-icon span:nth-child(3) {
+    top: 10px;
+}
+
+.toggle-menu-icon span:nth-child(4) {
+    top: 18px;
+}
+
+.toggle-menu-icon.open span:nth-child(1) {
+    top: 11px;
+    width: 0%;
+    left: 50%;
+}
+
+.toggle-menu-icon.open span:nth-child(2) {
+    transform: rotate(45deg);
+}
+
+.toggle-menu-icon.open span:nth-child(3) {
+    transform: rotate(-45deg);
+}
+
+.toggle-menu-icon.open span:nth-child(4) {
+    top: 11px;
+    width: 0%;
+    left: 50%;
+}
+
+.navbar-toggler:focus,
+button:focus {
+    box-shadow: none;
+}
+
+/* Banner */
+.banner {
+    position: relative;
+    background: url('../images/banner-bg.png') no-repeat;
+    padding-block: 75px;
+    background-size: cover;
+}
+
+.banner h1 {
+    font-size: 90px;
+    font-weight: 400;
+    line-height: 1;
+    color: #FFF;
+}
+
+.banner p {
+    font-size: 20px;
+    font-weight: 400;
+    line-height: 150%;
+    color: #C7C7C7;
+    margin-block: 24px 40px;
+}
+
+/* build-card */
+.build {
+    background: radial-gradient(209.92% 36.54% at 50% 50%, rgba(0, 0, 0, 0.00) 0%, rgba(0, 0, 0, 0.80) 100%), radial-gradient(50% 50% at 50% 50%, rgba(0, 0, 0, 0.00) 0%, rgba(0, 0, 0, 0.90) 100%);
+    padding-block: 120px;
+}
+
+.build-card {
+    max-width: 706px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    gap: 28px;
+    padding: 60px;
+    padding-right: 30px;
+    border-radius: 20px;
+    border: 2px solid var(--white, #FFF);
+    background: url('../images/card-bg.png') no-repeat;
+    background-position: center;
+    background-size: cover;
+    box-shadow: 0px 0px 80px 0px rgba(255, 255, 255, 0.40), 0px 0px 20px 0px rgba(255, 255, 255, 0.50);
+    backdrop-filter: blur(2px);
+}
+
+.build-card h2 {
+    font-size: 34px;
+    line-height: 130%;
+}
+
+.build-card p {
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 130%;
+    margin-block: 12px 30px;
+}
+
+/* about */
+.about {
+    background: url('../images/about-bg.png') center no-repeat;
+    background-size: cover;
+    padding-block: 435px 260px;
+}
+
+.about p {
+    font-size: 20px;
+    font-weight: 400;
+    line-height: 150%;
+    color: #C7C7C7;
+    margin-block: 24px 60px;
+}
+
+/* tokenomics */
+.tokenomics {
+    background: url('../images/tokenomics.png') center no-repeat;
+    background-size: cover;
+    padding-block: 170px 138px;
+}
+
+.tokenomics-left h2 {
+    margin-bottom: 138px;
+    text-align: right;
+}
+
+.tokenomics-left p {
+    font-size: 24px;
+    font-weight: 500;
+    line-height: 160%;
+}
+
+.counter {
+    text-align: center;
+}
+
+.counter h4 {
+    font-size: 30px;
+    font-weight: 400;
+    line-height: 160%;
+}
+
+.counter p {
+    font-size: 20px;
+    font-weight: 500;
+    line-height: 160%;
+}
+
+/* How To Buy */
+
+
+.how-to-buy {
+    background: url('../images/how-buy-bg.png') center no-repeat;
+    background-size: cover;
+    padding-block: 140px;
+}
+
+.buy-card {
+    padding: 20px;
+    border-radius: 20px;
+    border: 1px solid #fff;
+    background: linear-gradient(105deg, rgba(72, 1, 120, 0.6) 0.54%, rgba(9, 120, 1, 0.18) 100%);
+    box-shadow: 0px 0px 40.5px 0px rgb(255, 255, 255), 0px 0px 10px 0px rgba(165, 255, 17, 0.40);
+    backdrop-filter: blur(3px);
+}
+
+.buy-card.blue-card {
+    background: linear-gradient(105deg, rgb(255, 255, 255) 0.6%, rgba(4, 61, 132, 0.24) 100%);
+    box-shadow: 0px 0px 40.5px 0px rgb(255, 255, 255), 0px 0px 10px 0px rgb(255, 255, 255);
+}
+
+.buy-card h3 {
+    width: 54px;
+    height: 54px;
+    flex-shrink: 0;
+    border-radius: 10px;
+    background: #fff;
+    color: #152A34;
+    font-size: 24px;
+    font-weight: 400;
+    line-height: 130%;
+    display: grid;
+    place-content: center;
+}
+
+.buy-card span {
+    font-size: 20px;
+    font-weight: 600;
+    line-height: 130%;
+}
+
+.buy-card p {
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 130%;
+    margin-top: 16px;
+}
+
+/* Roadmap */
+.roadmap {
+    background: url('../images/roadmap-bg.png') center no-repeat;
+    background-size: cover;
+    padding-block: 120px;
+}
+
+.roadmap-card {
+    background: linear-gradient(180deg, rgba(91, 8, 185, 0.637) 0%, rgba(124, 12, 12, 0.6) 100%);
+    padding: 20px 20px 120px;
+    max-width: 302px;
+    margin-top: -64px;
+    margin-left: auto;
+    margin-right: 20px;
+}
+
+.roadmap-card.blue-card {
+    background: linear-gradient(180deg, rgb(250, 250, 250) 0%, rgba(124, 7, 7, 0.6) 100%);
+}
+
+.roadmap-card h4 {
+    font-size: 24px;
+    font-weight: 400;
+    line-height: 90%;
+    letter-spacing: 0.24px;
+    margin-bottom: 24px;
+}
+
+.roadmap-card li {
+    margin-bottom: 12px;
+}
+
+.roadmap-card p {
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 90%;
+    letter-spacing: 0.18px;
+}
+
+/* Footer */
+footer {
+    background: #152A34;
+}
+
+.footer-wrapper {
+    padding-block: 60px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.50);
+}
+
+.brand-card {
+    height: 100%;
+    border-radius: 10px;
+    border: 1px solid #ffffff;
+    background: var(--white, #FFF);
+    display: grid;
+    place-content: center;
+    padding: 15px;
+}
+
+.footer-menu {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px 30px;
+}
+
+.footer-menu li a {
+    color: #fff;
+    font-size: 20px;
+    line-height: 1;
+}
+
+.social-media {
+    display: flex;
+    justify-content: end;
+    align-items: center;
+    gap: 8px 16px;
+}
+
+.subscribe span {
+    font-size: 24px;
+    font-weight: 600;
+}
+
+.subscribe .input-group {
+    max-width: 706px;
+    flex-shrink: 0;
+    border-radius: 10px;
+    padding: 6px;
+    background: #fff;
+}
+
+.subscribe .input-group .form-control {
+    color: #000;
+    font-size: 20px;
+    line-height: 90%;
+    padding-block: 0;
+    border: 0;
+    background: transparent;
+    box-shadow: none;
+}
+
+.subscribe .input-group .form-control::placeholder {
+    color: #C7C7C7;
+}
+
+.subscribe .input-group .btn {
+    font-size: 20px;
+    font-weight: 400;
+    border-radius: 10px !important;
+    background: #0231DC;
+    color: #fff;
+    padding: 8px 40px;
+}
+
+.footer-bottom p {
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 180%;
+    color: rgba(255, 255, 255, 0.50);
+    text-transform: uppercase;
+}
+
+.footer-bottom ul li a {
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 180%;
+    color: rgba(255, 255, 255, 0.50);
+}
+
+/* Responsive CSS */
+
+@media (min-width: 1500px) {
+    .container {
+        max-width: 1488px;
+    }
+}
+
+@media (max-width: 1500px) {
+    .banner h1 {
+        font-size: 70px;
+    }
+
+    .roadmap-card {
+        margin-top: -56px;
+        max-width: 270px;
+    }
+}
+
+@media (max-width: 1400px) {
+    #navbar-right .navbar-nav {
+        gap: 10px;
+    }
+
+    #navbar-right .navbar-nav .nav-link {
+        font-size: 16px;
+        padding-inline: 10px;
+        font-weight: 600;
+    }
+
+
+    /*  */
+    .primary-btn {
+        font-size: 18px;
+        gap: 8px;
+        padding: 10px 16px;
+    }
+
+    .section-title {
+        font-size: 38px;
+    }
+
+    .title-group {
+        margin-bottom: 40px;
+    }
+
+    .banner h1 {
+        font-size: 60px;
+    }
+
+    .roadmap-card {
+        margin-top: -47px;
+        padding: 20px 20px 80px;
+    }
+
+    .tokenomics, .how-to-buy, .roadmap,
+    .build {
+        padding-block: 100px;
+    }
+
+    .about {
+        padding-block: 170px 100px;
+        background-position: left bottom;
+    }
+
+    .tokenomics-left h2 {
+        margin-bottom: 70px;
+    }
+
+    .build-card {
+        gap: 20px;
+        padding: 50px;
+        padding-right: 20px;
+    }
+
+    .counter h4 {
+        font-size: 24px;
+    }
+
+    .build-card h2 {
+        font-size: 28px;
+    }
+
+    .about p {
+        margin-block: 24px 40px;
+    }
+
+    .buy-card {
+        padding: 15px;
+    }
+
+    .buy-card p {
+        font-size: 16px;
+    }
+
+    .buy-card h3 {
+        font-size: 20px;
+        width: 44px;
+        height: 44px;
+    }
+
+    .about p,
+    .buy-card span {
+        font-size: 18px;
+    }
+
+    .subscribe span,
+    .tokenomics-left p {
+        font-size: 20px;
+    }
+
+    .footer-wrapper {
+        padding-block: 40px;
+    }
+}
+
+@media (max-width: 1199px) {
+    .section-title {
+        font-size: 30px;
+    }
+
+    .banner h1 {
+        font-size: 50px;
+    }
+
+    .banner p {
+        font-size: 18px;
+        margin-block: 24px 30px;
+    }
+
+    .roadmap-card {
+        margin-top: 0;
+        margin-inline: auto;
+        max-width: 302px;
+    }
+
+    .tokenomics, .how-to-buy, .roadmap, .build {
+        padding-block: 80px;
+    }
+
+    .footer-menu {
+        gap: 10px 20px;
+    }
+
+    .footer-menu li a {
+        font-size: 18px;
+    }
+
+    .subscribe .input-group {
+        max-width: 606px;
+    }
+
+    .roadmap-card p {
+        font-size: 16px;
+    }
+}
+
+@media (max-width: 991px) {
+    html {
+        scroll-padding-top: 76px;
+    }
+
+    #navbar-right .navbar-nav {
+        gap: 0;
+        max-width: 960px;
+        margin: 0 auto;
+        padding-block: 20px 10px;
+    }
+
+    .navbar-collapse {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        background: #152A34;
+        width: 100%;
+    }
+
+    #navbar-right .navbar-nav {
+        gap: 0;
+        max-width: 720px;
+    }
+
+    #navbar-right .navbar-nav .nav-link {
+        font-size: 18px;
+        padding: 8px 20px;
+    }
+
+    header {
+        padding-block: 12px;
+    }
+
+    /*  */
+    .banner h1 {
+        font-size: 40px;
+        margin-bottom: 6px;
+    }
+
+    .banner p {
+        font-size: 16px;
+        margin-bottom: 20px;
+    }
+
+    .tokenomics, .how-to-buy, .roadmap, .build {
+        padding-block: 60px;
+    }
+
+    .about {
+        padding-block: 60px;
+        background: transparent;
+    }
+
+    .tokenomics-left h2 {
+        text-align: center;
+        margin-bottom: 30px;
+    }
+
+    .counter p {
+        font-size: 18px;
+    }
+
+    .subscribe span, .tokenomics-left p {
+        font-size: 18px;
+    }
+
+    .footer-wrapper {
+        padding-block: 30px;
+    }
+
+    .social-media {
+        justify-content: center;
+    }
+
+    .subscribe .input-group {
+        max-width: 470px;
+    }
+
+    .subscribe .input-group .btn {
+        font-size: 18px;
+        padding: 8px 20px;
+    }
+}
+
+@media (max-width: 767px) {
+    #navbar-right .navbar-nav {
+        max-width: 540px;
+    }
+
+    .primary-btn {
+        font-size: 16px;
+        gap: 6px;
+        padding: 8px 12px;
+    }
+
+    .tokenomics, .how-to-buy, .roadmap, .build {
+        padding-block: 50px;
+    }
+
+    .section-title {
+        font-size: 26px;
+    }
+
+    .title-group {
+        margin-bottom: 30px;
+    }
+
+    .title-group p {
+        font-size: 18px;
+    }
+
+    .banner h1 {
+        font-size: 34px;
+    }
+
+    .build-card {
+        padding: 30px;
+        flex-direction: column;
+    }
+
+    .build-card h2 {
+        font-size: 24px;
+    }
+
+    .roadmap-card {
+        padding: 20px 20px 60px;
+    }
+
+    .build-card img {
+        width: 160px;
+    }
+
+    .build-card p {
+        margin-block: 12px 14px;
+    }
+
+    .counter h4 {
+        font-size: 20px;
+    }
+
+    .footer-logo img {
+        max-width: 160px;
+    }
+
+    .banner-elem {
+        height: 400px;
+    }
+
+    .banner-social img {
+        width: 30px;
+    }
+
+    .social-media img {
+        width: 35px;
+    }
+
+    .subscribe .input-group .form-control {
+        font-size: 18px;
+    }
+
+    .footer-bottom ul li a,
+    .footer-bottom p {
+        font-size: 16px;
+    }
+}
+
+@media (max-width: 576px) {
+    #navbar-right .navbar-nav .nav-link {
+        font-size: 16px;
+    }
+    .primary-btn {
+        font-size: 14px;
+        padding: 8px 20px;
+    }
+
+    header .primary-btn {
+        font-size: 14px;
+        padding: 8px 12px;
+    }
+
+    /*  */
+    .section-title {
+        font-size: 24px;
+    }
+
+    .tokenomics-left h2 {
+        text-align: center;
+        margin-bottom: 16px;
+    }
+
+    .about,
+    .tokenomics, .how-to-buy, .roadmap, .build {
+        padding-block: 40px;
+    }
+
+    .banner h1 {
+        font-size: 30px;
+        margin-bottom: 16px;
+    }
+
+    .banner {
+        padding-block: 50px;
+    }
+
+    .footer-menu {
+        gap: 10px 20px;
+        flex-direction: column;
+    }
+
+    .footer-bottom ul li a, .footer-bottom p {
+        font-size: 14px;
+        text-align: center;
+    }
+
+    .build-card {
+        padding: 20px 16px;
+    }
+
+    .build-card h2 {
+        font-size: 20px;
+    }
+
+    .title-group p,
+    .subscribe span, .tokenomics-left p,
+    .about p, .buy-card span,
+    .build-card p {
+        font-size: 16px;
+    }
+
+    .about p {
+        margin-block: 24px;
+    }
+
+    .subscribe .input-group .btn {
+        font-size: 14px;
+        padding: 6px 12px;
+    }
+    .brand-card {
+        padding: 10px;
+    }
+}
+
+@media (max-width: 440px) {
+    .banner h1 {
+        font-size: 26px;
+    }
+
+    .banner-elem {
+        height: 300px;
+    }
+}
